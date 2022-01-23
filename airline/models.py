@@ -17,9 +17,9 @@ class AirLine(models.Model):
     airline_fuel_consumption = models.FloatField()
     passenger_fuel_consumption = models.FloatField()
     total_fuel_consumption = models.FloatField()
-    maximum_travel_time = models.DurationField()
+    maximum_travel_time = models.FloatField()
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
-    
+
     def __str__(self):
         return self.name

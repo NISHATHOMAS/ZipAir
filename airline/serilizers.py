@@ -33,7 +33,7 @@ class CreateAirLineSerializer(serializers.ModelSerializer):
         return self.total_fuel_consumption
 
     def get_maximum_travel_time(self, obj):
-        self.maximum_travel_time = timedelta(minutes=round((self.fuel_capacity/self.total_fuel_consumption), 3))
+        self.maximum_travel_time = round((self.fuel_capacity/self.total_fuel_consumption), 3)
         return self.maximum_travel_time
 
     def create(self, validated_data):

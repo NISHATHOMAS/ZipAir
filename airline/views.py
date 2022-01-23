@@ -20,7 +20,7 @@ class CreateAirLine(CreateAPIView):
     serializer_class = CreateAirLineSerializer
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
+        serializer = self.get_serializer(data=request.data, many=True)
         if not serializer.is_valid():
             response_dict = {
                 "code": 0,
