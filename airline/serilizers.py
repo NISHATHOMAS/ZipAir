@@ -1,7 +1,6 @@
 from datetime import timedelta
 
 import math
-from decimal import Decimal
 from rest_framework import serializers
 
 from airline.models import AirLine, Config
@@ -44,9 +43,7 @@ class CreateAirLineSerializer(serializers.ModelSerializer):
         validated_data["airline_fuel_consumption"] = self.get_airline_fuel_consumption(airline_obj)
         validated_data["total_fuel_consumption"] = self.get_total_fuel_consumption(airline_obj)
         validated_data["maximum_travel_time"] = self.get_maximum_travel_time(airline_obj)
-        print("validated_data", validated_data["airline_id"], validated_data["total_fuel_consumption"])
         airline_obj = AirLine(**validated_data)
-        print(airline_obj)
         airline_obj.save()
         return airline_obj
 
